@@ -1,4 +1,4 @@
-package com.rllproject.emedicarebackend.medicines;
+package com.rllproject.emedicare.medicines;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,4 +1,4 @@
-package com.rllproject.emedicarebackend.medicines;
+package com.rllproject.emedicare.medicines;
 
 import javax.persistence.*;
 
@@ -20,6 +20,7 @@ public class MedicineObject {
     private float price;
     private String seller;
     private String description;
+
 
     public int getMedicineId() {
         return medicineId;
@@ -60,4 +61,5 @@ public class MedicineObject {
     public void setDescription(String description) {
         this.description = description;
     }
+
 }

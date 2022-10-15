@@ -1,10 +1,10 @@
-package com.rllproject.emedicarebackend;
+package com.rllproject.emedicare;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class EMedicareBackendApplicationTests {
+class EMedicareApplicationTests {
 
     @Test
     void contextLoads() {

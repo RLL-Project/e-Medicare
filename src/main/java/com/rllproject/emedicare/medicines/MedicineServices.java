@@ -1,4 +1,4 @@
-package com.rllproject.emedicarebackend.medicines;
+package com.rllproject.emedicare.medicines;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,5 +31,13 @@ public class MedicineServices {
     // to get a particular medicine using medicineId
     public List<MedicineObject> medicine(int medicineId) {
         return medicineJPARepo.findById(medicineId);
+    }
+
+    public MedicineObject updateMedicine( MedicineObject updatedMedicine) {
+        return medicineJPARepo.save(updatedMedicine);
+    }
+
+    public void deleteMedicine( int medicineId) {
+        medicineJPARepo.deleteById(medicineId);
     }
 }
