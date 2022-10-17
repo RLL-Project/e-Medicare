@@ -13,36 +13,47 @@ import org.springframework.stereotype.Service;
 public class LoginService {
 	@Autowired
 	LoginRepository loginRepository;
-	public String signIn(Login login) {
-		Optional<Login> result = loginRepository.findById(login.getEmailid());
-		if(result.isPresent()) {
-					Login ll = result.get();
-					if(ll.getPassword().equals(login.getPassword())) {		
-						
-				if(login.getRole().equals(ll.getRole()) && login.getRole().equals("admin")) {
-							return "Admin sucessfully login";
-				}else if(login.getRole().equals(ll.getRole()) && login.getRole().equals("user")){
-							return "User successfully login";
-						}else {
-							return "Invalid details";
-						}					
-					}else {
-						return "InValid password";
-					}
-		}else {
-			return "InValid emailId";
-		}		
+
+	Login login;
+	public String signIn(String email,String password) {
+		login=loginRepository.findByEmailid(email);
+		if(login!=null)
+		{
+			
+		
+		if(login.getEmailid().equals(email)&&login.getPassword().equals(password))
+		{
+			return "login sucessfull";
+		}
+		else
+		{
+			return "invalid credentials";
+		}
+		
+		
 	}
+	else
+	{
+		return "User not found";
+	}
+		
+
+  }
+	
+	
+
+		
 	public String signUp(Login login) {
-		Optional<Login> result = loginRepository.findById(login.getEmailid());
-		if(result.isPresent()) {
-					return "Email Id alreay exists";
-		}else {
-			if(login.getRole().equals("admin")) {
-				return "You can't create admin account";
-			}else {
+		
+		{
+			if(loginRepository.findByEmailid(login.getEmailid())==null)
+			{
 				loginRepository.save(login);
-				return "Account created successfully";
+				return " User registered successfully";
+			}
+			else
+			{
+				return "User already exists";
 			}
 		}
 	}
