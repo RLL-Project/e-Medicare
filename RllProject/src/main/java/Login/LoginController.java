@@ -58,11 +58,11 @@ public class LoginController {
                 return new ResponseEntity<Object>(loginservice.updateUser(existingUser.get(0)), HttpStatus.CREATED);
             }
             else {
-                return new ResponseEntity<Object>("Incorrect medicine Id.", HttpStatus.BAD_REQUEST);
+                return new ResponseEntity<Object>("Incorrect user Id.", HttpStatus.BAD_REQUEST);
             }
         }
         catch (Exception e) {
-            return new ResponseEntity<Object>("Facing some issue while trying to update medicine details, please try with different medicine name or try after some time.", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<Object>(" please try with different user id", HttpStatus.BAD_REQUEST);
         }
     }
 
