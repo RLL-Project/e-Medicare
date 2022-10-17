@@ -33,6 +33,13 @@ public class MedicineServices {
         return medicineJPARepo.findById(medicineId);
     }
 
+
+    // to get a particular medicine using its name
+    public List<MedicineObject> searchMedicine(String name) {
+        return medicineJPARepo.findByName(name);
+    }
+
+
     public MedicineObject updateMedicine( MedicineObject updatedMedicine) {
         return medicineJPARepo.save(updatedMedicine);
     }

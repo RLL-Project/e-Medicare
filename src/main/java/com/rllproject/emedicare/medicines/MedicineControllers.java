@@ -79,6 +79,25 @@ public class MedicineControllers {
     }
 
 
+    // get medicine by its name
+    @GetMapping("/medicine/search")
+    public ResponseEntity<Object> searchMedicine(@RequestParam("name") String name) {
+        try {
+            List<MedicineObject> res = medicineServices.searchMedicine(name);
+
+            if(res != null) {
+                return new ResponseEntity<Object>(res, HttpStatus.CREATED);
+            }
+            else {
+                return new ResponseEntity<Object>("Incorrect medicine id.", HttpStatus.NO_CONTENT);
+            }
+        }
+        catch (Exception e) {
+            return new ResponseEntity<Object>("Facing some issue while trying to fetch medicine, please try after some time.", HttpStatus.BAD_REQUEST);
+        }
+    }
+
+
     // update medicine using id
     @PutMapping("/medicine")
     public ResponseEntity<Object> updateMedicine(@RequestParam("medicineId") int medicineId,@RequestBody MedicineObject updatedMedicine) {

@@ -14,4 +14,5 @@ import java.util.List;
 
 public interface MedicineJPARepo extends JpaRepository<MedicineObject, Integer> {
     List<MedicineObject> findById(int productId);
+    List<MedicineObject> findByName(String name);
 }
