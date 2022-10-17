@@ -27,11 +27,13 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class LoginController {
 	@Autowired
 	LoginService loginservice;
-    
+	
 	@PostMapping(value="signIn",consumes=MediaType.APPLICATION_JSON_VALUE)
 	public String signIn(@RequestBody Login login)
+	
 	{
-		return loginservice.signIn(login);
+
+		return loginservice.signIn(login.getEmailid(), login.getPassword());
 	}
 	@PostMapping(value="signUp",consumes=MediaType.APPLICATION_JSON_VALUE)
 	public String signUp(@RequestBody Login login)
@@ -58,7 +60,7 @@ public class LoginController {
                 return new ResponseEntity<Object>(loginservice.updateUser(existingUser.get(0)), HttpStatus.CREATED);
             }
             else {
-                return new ResponseEntity<Object>("Incorrect user Id.", HttpStatus.BAD_REQUEST);
+                return new ResponseEntity<Object>("Incorrect User Id.", HttpStatus.BAD_REQUEST);
             }
         }
         catch (Exception e) {
