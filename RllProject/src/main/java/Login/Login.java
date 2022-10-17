@@ -45,7 +45,6 @@ public class Login
 	@Id
 	private String emailid;
 	private String password;
-	private String role;
 	private String name;
 	private String gender;
 	private String Mobileno;
@@ -62,11 +61,6 @@ public class Login
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getRole() {
-		return role;
-	}
-	public void setRole(String role) {
-		this.role = role;
-	}
+	
 
 }
