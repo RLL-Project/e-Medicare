@@ -19,8 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-//import com.example.demo.bean.Login;
-//import com.example.demo.Service.LoginService;
+
 @RestController
 @RequestMapping("login")
 @CrossOrigin
