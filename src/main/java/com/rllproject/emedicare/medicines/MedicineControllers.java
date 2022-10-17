@@ -86,14 +86,14 @@ public class MedicineControllers {
             List<MedicineObject> res = medicineServices.searchMedicine(name);
 
             if(res != null) {
-                return new ResponseEntity<Object>(res, HttpStatus.CREATED);
+                return new ResponseEntity<Object>(res, HttpStatus.FOUND);
             }
             else {
-                return new ResponseEntity<Object>("Incorrect medicine id.", HttpStatus.NO_CONTENT);
+                return new ResponseEntity<Object>("No medicine with such name.", HttpStatus.NO_CONTENT);
             }
         }
         catch (Exception e) {
-            return new ResponseEntity<Object>("Facing some issue while trying to fetch medicine, please try after some time.", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<Object>("Facing some issue while trying to fetch this medicine, please try after some time.", HttpStatus.BAD_REQUEST);
         }
     }
 
