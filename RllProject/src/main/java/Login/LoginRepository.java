@@ -9,4 +9,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface LoginRepository extends JpaRepository<Login,String>{
 	 List<Login> findById(int id);
+         public Login findByEmailid(String emailid);
 }
