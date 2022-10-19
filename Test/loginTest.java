@@ -16,7 +16,7 @@ public class loginTest {
 		WebDriver driver = new ChromeDriver();
 
 		driver.manage().window().maximize();
-		driver.get("http://localhost:4200");
+		driver.get("http://localhost:4200/user");
 
 		WebElement username = driver.findElement(By.id("username"));
 		WebElement password = driver.findElement(By.id("password"));
@@ -33,7 +33,7 @@ public class loginTest {
 		Thread.sleep(3000);
 		login.click();
 
-		String actualUrl = "https://localhost:8081/dash.html";
+		String actualUrl = "http://localhost:4200/user";
 		String expectedUrl = driver.getCurrentUrl();
 		Assert.assertEquals(expectedUrl, actualUrl);
 	}
